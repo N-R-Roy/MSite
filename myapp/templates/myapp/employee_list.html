@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Employee List:</h3>
+    <a href="{% url 'myapp:create_emp' %}">Create Employee</a><br>
+    <a href="{% url 'myapp:index' %}">Go to Homepage</a>
+    <ul>
+        {% for emp in emp_list %}
+        <li>
+            <div>
+                <h4>{{emp.name}}</h4>
+                <img src="{{emp.file.url}}" width="100px" height="100px">
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'myapp:create_emp' %}">Go Employee Form page</a>
+
+</body>
+</html>

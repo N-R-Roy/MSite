@@ -1,0 +1,52 @@
+
+{% extends 'myapp/base.html' %}
+
+{% block title %}homepage{% endblock %}
+
+{% block main %}
+<div id="main" style="background:lightblue;">
+    <div style="text-align:center;">
+        <h2>This is homepage</h2>
+    </div>
+    <h3>Person List:</h3>
+    <div>
+        <ul>
+            {% for person in person_list %}
+            <a href="{% url 'myapp:person_detail' pk=person.id %}">
+                <li>{{person.id}} >> {{person.name}} >> {{person.address}}</li></a>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <div>
+        <br>
+        <a href="{% url 'myapp:create_person' %}">Create Person</a>
+    </div>
+
+    <div>
+        <br>
+        <a href="{% url 'myapp:emp_list' %}">Employee List</a>
+    </div>
+
+    <h3>Time and date => {{time}}</h3>
+
+</div>
+{% endblock %}

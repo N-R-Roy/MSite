@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person Detail</title>
+</head>
+<body>
+
+    <h1>This is detail of {{person.name}}</h1>
+
+    <h3>Name    = {{person.name}}</h3>
+    <h3>Address = {{person.address}}</h3>
+    <h3>Age     = {{person.age}}</h3>
+
+    <h3>Time = {{time}}</h3>
+
+    <a href="{% url 'myapp:update_person' pk=person.id %}">Update {{person.name}}</a><br>
+    <a href="{% url 'myapp:delete_person' pk=person.id %}">Delete {{person.name}}</a>
+</body>
+</html>

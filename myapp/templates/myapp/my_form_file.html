@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Name:</label><br>
+        <input type="text" name="name"><br>
+        <label>Select a file</label><br>
+        <input type="file" name="file"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

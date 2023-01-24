@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock%}</title>
+</head>
+<body>
+<div style="background:gray; height:50px;">
+    <div><h1 style="text-align:center;">This is header</h1></div>
+</div>
+{% block main %}{% endblock %}
+<div style="background:gray; height:300px;">
+    <div style="text-align:center;"><h1>This is footer</h1></div>
+</div>
+
+</body>
+</html>
