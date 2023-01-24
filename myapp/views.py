@@ -16,12 +16,6 @@ from django import views
 from django.core.files.storage import FileSystemStorage
 
 
-# def index(request):
-#     person_list = PersonInfo.objects.all()
-#     p_form = PersonForm()
-#     return render(request, "myapp/index.html", {'person_list': person_list, 'p_form': p_form})
-
-
 class Index(generic.ListView):
     model = PersonInfo
     template_name = "myapp/index.html"
@@ -30,8 +24,6 @@ class Index(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        print(self.request.session['heloo'])
-        self.request.session.set_test_cookie()
         # context["person_list"] = PersonInfo.objects.all()
         context["time"] = datetime.datetime.now()
         return context
@@ -166,12 +158,6 @@ def employee_vw(request):
         # return HttpResponse(str(url))
         return HttpResponseRedirect(reverse_lazy("myapp:emp_list"))
     else:
-        request.session['heloo'] = "Hello"
-        if request.session.test_cookie_worked():
-            request.session.delete_test_cookie()
-            print("Work")
-        else:
-            print("Please enable cookies and try again.")
         form = EmployeeForm()
         return render(request, 'myapp/employee.html', {'form': form})
 
